@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testDB
+    username: root
+    password: 
+
+  jpa:
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.default_batch_fetch_size: 100
+
+  sql.init.mode: always
+
+  # 컨트롤러에서 프론트로 보내줄 때 null field 생략
+  jackson:
+    default-property-inclusion: non_null
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    s3:
+      bucket: s3-ebnatural
+      product-dir: product_images
+      purchase-document-dir: purchase_document_images
+      make-document-dir: make_document_images
+      sell-document-dir: sell_document_images
+      business-registration-dir: business_registration_images
+
+mail:
+  smtp:
+    auth: true
+    starttls:
+      required: true
+      enable: true
+    socketFactory:
+      class: javax.net.ssl.SSLSocketFactory
+      fallback: false
+      port: 465
+    port: 465
+
+  # admin 구글 계정
+  #pw:
+AdminMail:
+  id:
+  password:
